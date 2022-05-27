@@ -10,7 +10,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       cwr-testimonial-block
  *
- * @package           create-block
+ * @package           cwr-testimonial-block
  */
 
 define( '__ROOT__', plugin_dir_path( __FILE__ ) );

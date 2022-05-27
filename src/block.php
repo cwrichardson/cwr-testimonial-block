@@ -31,9 +31,7 @@ EOD;
 			$the_block .= '<div class="testimonial fade">';
 
 			if ( array_key_exists( 'cwr_testimonial_profile_pic', $meta ) ) {
-				$the_block .= '<div class="image-wrap">'
-							. esc_html( print_r( $meta, true ) );
-
+				$the_block .= '<div class="image-wrap">';
 				$img_ID = $meta[ 'cwr_testimonial_profile_pic' ][ 0 ];
 				$the_block .=
 					wp_get_attachment_image( $img_ID, 'thumbnail', false,
