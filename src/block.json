@@ -7,13 +7,6 @@
 	"category": "widgets",
 	"icon": "flag",
 	"description": "A simple block for a testimonial slider",
-	"attributes": {
-		"message": {
-			"type": "string",
-			"source": "text",
-			"selector": "div"
-		}
-	},
 	"supports": {
 		"html": false
 	},

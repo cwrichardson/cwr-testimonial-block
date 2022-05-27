@@ -15,6 +15,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {null} No return as this is a dynamic block
  */
-export default function save() : null {
+export default function save() {
 	return null;
 }
