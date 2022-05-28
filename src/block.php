@@ -6,6 +6,8 @@
  */
 
 function cwr_testimonial_render_callback( $block_attributes ) {
+	wp_enqueue_script( 'cwr_testimonial_block_slider' );
+
 	$args = array(
 		'post_type' => 'cwr_testimonial_page',
 	);
@@ -27,29 +29,31 @@ EOD;
 			$post_count++;
 			$the_query->the_post();
 			$meta = get_post_meta( get_the_id() );
+			$rating = esc_html( $meta[ 'cwr_testimonial_star_rating' ][ 0 ] );
 
-			$the_block .= '<div class="testimonial fade">';
+			$the_block .= '<div class="testimonial fade" data-rating="'
+				. $rating . '">';
 
 			if ( array_key_exists( 'cwr_testimonial_profile_pic', $meta ) ) {
 				$the_block .= '<div class="image-wrap">';
 				$img_ID = $meta[ 'cwr_testimonial_profile_pic' ][ 0 ];
 				$the_block .=
 					wp_get_attachment_image( $img_ID, 'thumbnail', false,
-					array( 'alt' => the_title() . ' profile picture' )
+					array( 'alt' => get_the_title() . ' profile picture' )
 				)
 					. '</div>';
 			}
 
 			if ( array_key_exists( 'cwr_testimonial_star_rating', $meta ) ) {
-				$the_block .=
-					'<div class="testimonial-rating stars" data-rating="'
-					. esc_html( $meta[ 'cwr_testimonial_star_rating' ][ 0 ] )
-				  . '">'
-				  . '</div>';
+				$the_block .= '<div class="testimonial-rating stars" '
+					. 'aria-role="img" aria-label="'
+					/* translators: 1: star rating (number) */
+					. __( sprintf( 'Rating: %1$s out of 5 stars', $rating ) )
+					. '"></div>';
 			}
 
-			$the_block .= '<div class="testimonial-content">'
-				. get_the_content() . '</div>';
+			$the_block .= '<div class="testimonial-content">"'
+				. get_the_content() . '"</div>';
 			$the_block .= '<div class="reviewer">' . get_the_title() . '</div>';
 
 			if ( array_key_exists( 'cwr_testimonial_jobrole', $meta ) ) {
@@ -69,8 +73,7 @@ EOD;
 EOD;
 
 		for ( $i = 1; $i <= $post_count; $i++ ) {
-			$the_block .= '<span class="testimonial-dot" '
-				. 'onclick="currentTestimonial(' . $i . ')"></span>';
+			$the_block .= '<span class="testimonial-dot"></span>';
 		}
 
 		$the_block .=<<<'EOD'

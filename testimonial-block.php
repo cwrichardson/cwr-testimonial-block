@@ -26,6 +26,12 @@ require_once( __ROOT__ . 'src/block.php' );
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_cwr_testimonial_block_block_init() {
+	$sliderScriptUrl = plugins_url( 'build/slider.js', __FILE__ );
+	$version = filemtime( __DIR__ . '/build/slider.js' );
+
+	wp_register_script( 'cwr_testimonial_block_slider', $sliderScriptUrl,
+		array(), $version );
+
 	register_block_type( __DIR__ . '/build',
 	  array(
 		  'render_callback' => 'cwr_testimonial_render_callback',
