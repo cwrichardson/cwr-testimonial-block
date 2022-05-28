@@ -1,3 +1,31 @@
+import Swiper, { Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+function setRating() {
+    const testimonial = document.querySelector('.swiper-slide-active');
+    let rating = testimonial.getAttribute('data-rating');
+    const r = document.querySelector(':root');
+    r.style.setProperty('--star-rating', rating);
+}
+
+// init Swiper
+window.addEventListener( 'DOMContentLoaded', () => {
+  const swiper = new Swiper('.swiper', {
+    modules: [ Pagination ],
+    pagination: {
+      clickable: true,
+      el: '.swiper-pagination',
+    },
+  });
+
+  setRating();
+
+  swiper.on( 'slideChange', setRating );
+
+});
+
+/*
 window.addEventListener( 'DOMContentLoaded', () => {
   const container = document.querySelector('.testimonial-container');
   const dotsContainer = document.querySelector('.testimonial-dots');
@@ -17,6 +45,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
     target.classList.add('active');
   });
 } );
+*/
 
 /**
 let testimonialIndex = 1;

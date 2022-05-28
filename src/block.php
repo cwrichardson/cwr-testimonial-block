@@ -21,9 +21,9 @@ function cwr_testimonial_render_callback( $block_attributes ) {
 		$post_count = 0;
 		$the_block = <<<'EOD'
 		<!-- Testimonial outer wrapper -->
-		<div class="testimonial-wrapper">
+		<div class="swiper">
 		<!-- Testimonial container -->
-		<div class="testimonial-container">
+		<div class="swiper-wrapper">
 EOD;
 		while ( $the_query->have_posts() ) {
 			$post_count++;
@@ -31,8 +31,8 @@ EOD;
 			$meta = get_post_meta( get_the_id() );
 			$rating = esc_html( $meta[ 'cwr_testimonial_star_rating' ][ 0 ] );
 
-			$the_block .= '<div class="testimonial fade" data-rating="'
-				. $rating . '">';
+			$the_block .= '<div class="swiper-slide testimonial fade" '
+				. 'data-rating="' . $rating . '">';
 
 			if ( array_key_exists( 'cwr_testimonial_profile_pic', $meta ) ) {
 				$the_block .= '<div class="image-wrap">';
@@ -69,15 +69,16 @@ EOD;
 		</div> <!-- Testimonial container -->
 
 		<!-- dots/circles -->
-		<div class="testimonial-dots">
+		<div class="swiper-pagination"></div>
 EOD;
 
+		/*
 		for ( $i = 1; $i <= $post_count; $i++ ) {
 			$the_block .= '<span class="testimonial-dot"></span>';
 		}
+		*/
 
 		$the_block .=<<<'EOD'
-		</div>
 	  </div> <!-- Testimonial outer wrapper -->
 EOD;
 	}
