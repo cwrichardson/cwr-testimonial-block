@@ -17,6 +17,8 @@ window.addEventListener( 'DOMContentLoaded', () => {
       clickable: true,
       el: '.swiper-pagination',
     },
+    effect: 'fade',
+    initialSlide: '4',
   });
 
   setRating();
