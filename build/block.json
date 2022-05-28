@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "cwr/testimonial-block",
-	"version": "0.99.1",
+	"version": "0.99.2",
 	"title": "Simple Testimonial Block",
 	"category": "widgets",
 	"icon": "flag",

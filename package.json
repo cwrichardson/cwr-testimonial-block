@@ -1,6 +1,6 @@
 {
 	"name": "cwr-testimonial-block",
-	"version": "0.1.0",
+	"version": "0.99.2",
 	"description": "A Gutenberg block to show your pride! This block enables you to type text and style it with the color font Gilbert from Type with Pride.",
 	"author": "The WordPress Contributors",
 	"license": "GPL-2.0-or-later",
