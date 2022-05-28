@@ -6,7 +6,7 @@ function setRating() {
     const testimonial = document.querySelector('.swiper-slide-active');
     let rating = testimonial.getAttribute('data-rating');
     const r = document.querySelector(':root');
-    r.style.setProperty('--star-rating', rating);
+    r.style.setProperty('--testimonial-star-rating', rating);
 }
 
 // init Swiper

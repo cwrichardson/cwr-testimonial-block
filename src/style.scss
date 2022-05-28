@@ -8,9 +8,9 @@
 @import "~swiper/scss/pagination";
 
 :root {
-	--star-color: #fff;
-	--star-background: #fc0;
-	--star-rating: 0;
+	--testimonial-star-color: #fff;
+	--testimonial-star-background: #fc0;
+	--testimonial-star-rating: 0;
 }
 
 /* Hide the testimonials by default */
@@ -19,6 +19,16 @@
 	flex-direction: column;
 	padding-bottom: 2.5em;
 }
+
+// fix swiper on grid layouts
+.swiper-grid {
+	display: grid;
+}
+
+.swiper-grid > .swiper {
+	width: 100%;
+}
+
 
 .image-wrap,
 .testimonial-rating,
@@ -30,8 +40,8 @@
 	text-align: center;
 }
 
-.stars {
-	--percent: calc(var(--star-rating) / 5 * 100%);
+.testimonial-rating.stars {
+	--testimonial-star-percent: calc(var(--testimonial-star-rating) / 5 * 100%);
 
 	display: inline-block;
 	text-align: center;
@@ -43,7 +53,7 @@
 		clear: both;
 		content: "★★★★★";
 		letter-spacing: 3px;
-		background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+		background: linear-gradient(90deg, var(--testimonial-star-background) var(--testimonial-star-percent), var(--testimonial-star-color) var(--testimonial-star-percent));
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -51,6 +61,7 @@
 
 .image-wrap img {
 	border-radius: 25%;
+	display: inline;
 }
 
 .testimonial-dot {

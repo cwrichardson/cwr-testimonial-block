@@ -20,6 +20,8 @@ function cwr_testimonial_render_callback( $block_attributes ) {
 	if ( $the_query->have_posts() ) {
 		$post_count = 0;
 		$the_block = <<<'EOD'
+		<!-- Swiper grid wrapper -->
+		<div class="swiper-grid">
 		<!-- Testimonial outer wrapper -->
 		<div class="swiper">
 		<!-- Testimonial container -->
@@ -80,6 +82,7 @@ EOD;
 
 		$the_block .=<<<'EOD'
 	  </div> <!-- Testimonial outer wrapper -->
+	  </div> <!-- Swiper grid wrapper -->
 EOD;
 	}
 
