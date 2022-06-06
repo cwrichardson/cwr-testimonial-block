@@ -10,19 +10,22 @@ function setRating() {
 }
 
 // init Swiper
-const swiper = new Swiper('.swiper', {
-  modules: [ Pagination ],
-  pagination: {
-    clickable: true,
-    el: '.swiper-pagination',
-  },
-  effect: 'fade',
-  initialSlide: '4',
+window.addEventListener( 'DOMContentLoaded', () => {
+  const swiper = new Swiper('.swiper', {
+    modules: [ Pagination ],
+    pagination: {
+      clickable: true,
+      el: '.swiper-pagination',
+    },
+    effect: 'fade',
+    initialSlide: '4',
+  });
+
+  setRating();
+
+  swiper.on( 'slideChange', setRating );
+
 });
-
-setRating();
-
-swiper.on( 'slideChange', setRating );
 
 /*
 window.addEventListener( 'DOMContentLoaded', () => {
